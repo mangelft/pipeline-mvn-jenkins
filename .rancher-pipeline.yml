@@ -11,7 +11,7 @@ stages:
       buildContext: .
       tag: myapp:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: https://registry.paas.local
+      registry: registry.paas.local:443
 - name: Deploy
   steps:
   - applyYamlConfig:
