@@ -3,15 +3,15 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3.6-jdk-8-alpine
-      shellScript: |-
-        mvn clean install
+      shellScript: mvn clean install
 - name: Publish
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
+      tag: myapp:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: https://registry.paas.local
 - name: Deploy
   steps:
-  - applyYamlConfig:
-path: ./deployment.yaml
+  - {}
