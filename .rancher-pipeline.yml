@@ -1,0 +1,17 @@
+stages:
+- name: Build artifactory
+  steps:
+  - runScriptConfig:
+      image: maven:3.6-jdk-8-alpine
+      shellScript: |-
+        mvn clean install
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+path: ./deployment.yaml
