@@ -11,7 +11,7 @@ stages:
       buildContext: .
       tag: myapp:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: docker-registry.docker-registry.svc.cluster.local:5000
+      registry: 127.0.0.1:34476
 - name: Deploy
   steps:
   - applyYamlConfig:
