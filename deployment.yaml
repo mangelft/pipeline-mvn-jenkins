@@ -17,12 +17,13 @@ metadata:
   name: myapp-ingress
 spec:
   rules:
-  - http:
+  - host: demo.paas.csuc.cat
+    http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: myapp-service
-          servicePort: 80
+          servicePort: 8080
+        path: /
 ---
 apiVersion: apps/v1
 kind: Deployment
