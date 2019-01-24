@@ -5,11 +5,24 @@ metadata:
 spec:
   selector:
     app: myapp
-  type: NodePort
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: myapp-service
+          servicePort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
