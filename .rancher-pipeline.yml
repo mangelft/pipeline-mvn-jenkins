@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: myapp:${CICD_EXECUTION_SEQUENCE}
+      tag: CSUC/myapp:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: https://registry.pre.csuc.cat
 - name: Deploy
