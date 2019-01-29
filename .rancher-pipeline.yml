@@ -11,7 +11,7 @@ stages:
       buildContext: .
       tag: myapp:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: https://registry.pre.csuc.cat
+      registry: 127.0.0.1:34430
 - name: Deploy
   steps:
   - applyYamlConfig:
