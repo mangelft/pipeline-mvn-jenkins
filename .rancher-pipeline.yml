@@ -17,3 +17,7 @@ stages:
   - runScriptConfig:
       image: lachlanevenson/k8s-kubectl:latest
       shellScript: kubectl get pods -n p-c7bpr-pipeline
+    when:
+      branch:
+        exclude:
+        - master
