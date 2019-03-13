@@ -19,7 +19,6 @@ stages:
       shellScript: kubectl get pods -n p-c7bpr-pipeline
    when:
      event:
-       exclude:
-        - production
+       exclude: [ production ]
 
 
