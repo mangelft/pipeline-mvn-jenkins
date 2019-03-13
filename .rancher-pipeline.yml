@@ -12,10 +12,10 @@ stages:
       tag: myapp:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: registry.pre.csuc.cat:443
-- name: Deploy
+- name: Test kubectl
   steps:
   - runScriptConfig:
-      image: bitnami/kubectl:latest
+          image: lachlanevenson/k8s-kubectl:latest
       shellScript: kubectl get pods --all-namespaces
 
 
