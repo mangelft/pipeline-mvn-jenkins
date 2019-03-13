@@ -14,5 +14,8 @@ stages:
       registry: registry.pre.csuc.cat:443
 - name: Deploy
   steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+  - runScriptConfig:
+      image: bitnami/kubectl:latest
+      shellScript: kubectl get pods --all-namespaces
+
+
