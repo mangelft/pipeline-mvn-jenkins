@@ -15,7 +15,7 @@ stages:
 - name: Test kubectl
   steps:
   - runScriptConfig:
-          image: lachlanevenson/k8s-kubectl:latest
+      image: lachlanevenson/k8s-kubectl:latest
       shellScript: kubectl get pods --all-namespaces
 
 
