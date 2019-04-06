@@ -31,9 +31,9 @@ spec:
       - name: pipeline-docker-registry
       containers:
       - name: alpine
-        image: alpine:latest
+        image: ${IMAGE}
         env:
         - name: DEMO_ENV  
-          value: ${ENV_FOO}
+          value: value
         ports:
         - containerPort: 8080
