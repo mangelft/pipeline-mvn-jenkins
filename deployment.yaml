@@ -30,8 +30,8 @@ spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
       containers:
-      - name: maven
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+      - name: alpine
+        image: alpine:latest
         env:
         - name: DEMO_ENV  
           value: ${ENV_FOO}
