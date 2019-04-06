@@ -4,5 +4,7 @@ stages:
   - applyYamlConfig:
       path: ./deployment.yaml
     env:
-      ENV_FOO: funciona
+      IMAGE: alpine:latest
+    envFrom:
+    - {}
 notification: {}
