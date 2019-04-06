@@ -10,9 +10,9 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: myapp:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
       registry: docker-registry.docker-registry.172.31.17.227.xip.io:443
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+notification: {}
