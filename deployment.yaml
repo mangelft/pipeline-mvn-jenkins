@@ -32,5 +32,8 @@ spec:
       containers:
       - name: maven
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        env:
+        - name: DEMO_ENV  
+          value: ${ENV_FOO}
         ports:
-- containerPort: 8080
+        - containerPort: 8080
