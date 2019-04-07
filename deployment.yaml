@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: myapp
-  type: NodePort
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 8080
@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-maven
+  name: demo-app
   labels:
     app: myapp
 spec:
@@ -27,13 +27,8 @@ spec:
       labels:
         app: myapp
     spec:
-      imagePullSecrets:
-      - name: pipeline-docker-registry
       containers:
-      - name: alpine
-        image: ${IMAGE}
-        env:
-        - name: DEMO_ENV  
-          value: value
+      - name: demo-app
+        image: demo-app:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 8080
