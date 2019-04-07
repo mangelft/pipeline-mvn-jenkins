@@ -5,6 +5,4 @@ stages:
       path: ./deployment.yaml
     env:
       IMAGE: alpine:latest
-    envFrom:
-    - {}
 notification: {}
