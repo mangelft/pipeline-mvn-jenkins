@@ -28,7 +28,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-maven
+  name: demo-app
   labels:
     app: myapp
 spec:
@@ -41,10 +41,8 @@ spec:
       labels:
         app: myapp
     spec:
-      imagePullSecrets:
-      - name: pipeline-docker-registry
       containers:
-      - name: maven
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+      - name: demo-app
+        image: demo-app:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 8080
